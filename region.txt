@@ -1,0 +1,4 @@
+Currently using stag region
+Custom region has been set to stag
+CDA HOST: https://stag-cdn.contentstack.io
+CMA HOST: https://stag-api.contentstack.io

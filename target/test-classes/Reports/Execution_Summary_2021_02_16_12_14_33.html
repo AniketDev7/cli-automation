@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent dark default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Feb 16, 2021 12:14:33 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>6</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>CLI-Export</span>
+						<span class='test-time'>Feb 16, 2021 12:14:33 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 16, 2021 12:14:33 PM</span>
+	<span class='label end-time'>Feb 16, 2021 12:15:35 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 1s+308ms</span>
+</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='2'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Export by Auth token:Simple stack</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 16, 2021 12:15:35 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 1m 1s+296ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>12:14:39 PM</td>
+													<td class='step-details'>Headless browser instance is launched</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>12:14:41 PM</td>
+													<td class='step-details'>Auth token added successfully >></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>12:15:35 PM</td>
+													<td class='step-details'><<< The stack has been exported successfully using Auth token >>></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>CLI-Import</span>
+						<span class='test-time'>Feb 16, 2021 12:15:36 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 16, 2021 12:15:36 PM</span>
+	<span class='label end-time'>Feb 16, 2021 12:16:44 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 8s+599ms</span>
+</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='4'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Import Complex stack Using Management Token</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 16, 2021 12:16:44 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 1m 8s+589ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>12:15:39 PM</td>
+													<td class='step-details'>Headless browser instance is launched</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>12:15:49 PM</td>
+													<td class='step-details'>Management token added successfully >></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>12:16:44 PM</td>
+													<td class='step-details'>Test case is passed & the Exported data is >> {"level":"info","message":"Migrating languages","timestamp":"2021-02-16T06:41:01.287Z"}
+{"level":"info","message":"Migrating extensions","timestamp":"2021-02-16T06:41:01.322Z"}
+{"level":"info","message":"No Extensions Found","timestamp":"2021-02-16T06:41:01.333Z"}
+{"level":"info","message":"Migrating environment","timestamp":"2021-02-16T06:41:01.310Z"}
+{"level":"info","message":"Migrating webhooks","timestamp":"2021-02-16T06:41:01.334Z"}
+{"level":"info","message":"No Webhooks Found","timestamp":"2021-02-16T06:41:01.342Z"}
+{"level":"info","message":"Migrating global-fields","timestamp":"2021-02-16T06:41:01.345Z"}
+{"level":"info","message":"No globalfields Found","timestamp":"2021-02-16T06:41:01.349Z"}
+{"level":"info","message":"No Assets Found","timestamp":"2021-02-16T06:41:01.357Z"}
+{"level":"info","message":"Migrating assets","timestamp":"2021-02-16T06:41:01.353Z"}
+{"level":"info","message":"Migrating contenttypes","timestamp":"2021-02-16T06:41:01.360Z"}
+{"level":"info","message":"Migrating languages","timestamp":"2021-02-16T06:45:50.407Z"}
+{"level":"info","message":"Languages have been imported successfully!","timestamp":"2021-02-16T06:45:54.817Z"}
+{"level":"info","message":"Migrating environment","timestamp":"2021-02-16T06:45:54.819Z"}
+{"level":"info","message":"Environments have been imported successfully!","timestamp":"2021-02-16T06:45:58.994Z"}
+{"level":"info","message":"Migrating extensions","timestamp":"2021-02-16T06:45:59.002Z"}
+{"level":"info","message":"No Extensions Found","timestamp":"2021-02-16T06:45:59.015Z"}
+{"level":"info","message":"No Webhooks Found","timestamp":"2021-02-16T06:45:59.024Z"}
+{"level":"info","message":"Migrating global-fields","timestamp":"2021-02-16T06:45:59.026Z"}
+{"level":"info","message":"Migrating webhooks","timestamp":"2021-02-16T06:45:59.017Z"}
+{"level":"info","message":"Global field profile created successfully","timestamp":"2021-02-16T06:46:04.333Z"}
+{"level":"info","message":"Migrating assets","timestamp":"2021-02-16T06:46:04.341Z"}
+{"level":"info","message":"globalfields have been imported successfully!","timestamp":"2021-02-16T06:46:04.335Z"}
+{"level":"info","message":"No folders were found at: D:\\Automation\\New_CLI\\CS\\contentstack.cli.automation\\_backup_561\\assets\\folders.json","timestamp":"2021-02-16T06:46:04.477Z"}
+{"level":"info","message":"Asset blt145bb968061ab80b published successfully","timestamp":"2021-02-16T06:46:07.369Z"}
+{"level":"info","message":"Asset bltec7a848c599558b1 published successfully","timestamp":"2021-02-16T06:46:09.284Z"}
+{"level":"info","message":"Completed asset import of batch no: 1","timestamp":"2021-02-16T06:46:09.287Z"}
+{"level":"info","message":"Asset bltee19ac21a1a88369 published successfully","timestamp":"2021-02-16T06:46:12.604Z"}
+{"level":"info","message":"Completed asset import of batch no: 6","timestamp":"2021-02-16T06:46:12.606Z"}
+{"level":"info","message":"Asset blt38125832f3f4ea5d published successfully","timestamp":"2021-02-16T06:46:16.955Z"}
+{"level":"info","message":"Completed asset import of batch no: 5","timestamp":"2021-02-16T06:46:16.959Z"}
+{"level":"info","message":"Asset blt8cd9da4d79f07e0d published successfully","timestamp":"2021-02-16T06:46:20.169Z"}
+{"level":"info","message":"Asset blt81dbe07e8a280b75 published successfully","timestamp":"2021-02-16T06:46:20.214Z"}
+{"level":"info","message":"Completed asset import of batch no: 4","timestamp":"2021-02-16T06:46:20.217Z"}
+{"level":"info","message":"Asset blt2c2e02fd4baf4316 published successfully","timestamp":"2021-02-16T06:46:23.539Z"}
+{"level":"info","message":"Asset bltd41a23e33af06d78 published successfully","timestamp":"2021-02-16T06:46:23.652Z"}
+{"level":"info","message":"Completed asset import of batch no: 3","timestamp":"2021-02-16T06:46:23.654Z"}
+{"level":"info","message":"Asset bltc8f1814083a48be5 published successfully","timestamp":"2021-02-16T06:46:27.893Z"}
+{"level":"info","message":"Asset blt4343721d964de2db published successfully","timestamp":"2021-02-16T06:46:28.135Z"}
+{"level":"info","message":"Completed asset import of batch no: 2","timestamp":"2021-02-16T06:46:28.139Z"}
+{"level":"info","message":"Asset import completed successfully!","timestamp":"2021-02-16T06:46:28.141Z"}
+{"level":"info","message":"Migrating contenttypes","timestamp":"2021-02-16T06:46:28.151Z"}
+{"level":"info","message":"news was updated successfully!","timestamp":"2021-02-16T06:46:32.441Z"}
+{"level":"info","message":"games was updated successfully!","timestamp":"2021-02-16T06:46:32.471Z"}
+{"level":"info","message":"Content types have been imported successfully!","timestamp":"2021-02-16T06:46:32.472Z"}
+{"level":"info","message":"Migrating entry","timestamp":"2021-02-16T06:46:32.631Z"}
+{"level":"info","message":"Entry blt862f883044bdc8ca published successfully in games content type","timestamp":"2021-02-16T06:46:37.012Z"}
+{"level":"info","message":"Entry blt94ee89aaf8c1e5d8 published successfully in games content type","timestamp":"2021-02-16T06:46:39.890Z"}
+{"level":"info","message":"Entries created successfully in games content type in en-us locale!","timestamp":"2021-02-16T06:46:39.894Z"}
+{"level":"info","message":"Entry blt986d6dc05d037252 published successfully in news content type","timestamp":"2021-02-16T06:46:43.086Z"}
+{"level":"info","message":"Entries created successfully in news content type in en-us locale!","timestamp":"2021-02-16T06:46:44.486Z"}
+{"level":"info","message":"Entries created successfully in 'en-us' language","timestamp":"2021-02-16T06:46:44.488Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-16T06:46:44.490Z"}
+{"level":"info","message":"Imported entries in 'en-us' language successfully!","timestamp":"2021-02-16T06:46:44.494Z"}
+{"level":"info","message":"Successfully imported 'en-us' entries!","timestamp":"2021-02-16T06:46:44.495Z"}
+{"level":"info","message":"Entries created successfully in games content type in fr-fr locale!","timestamp":"2021-02-16T06:46:44.610Z"}
+{"level":"info","message":"Entries created successfully in news content type in fr-fr locale!","timestamp":"2021-02-16T06:46:44.620Z"}
+{"level":"info","message":"Entries created successfully in 'fr-fr' language","timestamp":"2021-02-16T06:46:44.620Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-16T06:46:44.621Z"}
+{"level":"info","message":"Imported entries in 'fr-fr' language successfully!","timestamp":"2021-02-16T06:46:44.622Z"}
+{"level":"info","message":"Successfully imported 'fr-fr' entries!","timestamp":"2021-02-16T06:46:44.622Z"}
+{"level":"info","message":"Entries created successfully in games content type in de-de locale!","timestamp":"2021-02-16T06:46:44.642Z"}
+{"level":"info","message":"Entries created successfully in news content type in de-de locale!","timestamp":"2021-02-16T06:46:44.653Z"}
+{"level":"info","message":"Entries created successfully in 'de-de' language","timestamp":"2021-02-16T06:46:44.653Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-16T06:46:44.654Z"}
+{"level":"info","message":"Imported entries in 'de-de' language successfully!","timestamp":"2021-02-16T06:46:44.654Z"}
+{"level":"info","message":"Successfully imported 'de-de' entries!","timestamp":"2021-02-16T06:46:44.654Z"}
+{"level":"info","message":"Entries created successfully in games content type in es-es locale!","timestamp":"2021-02-16T06:46:44.668Z"}
+{"level":"info","message":"Entries created successfully in news content type in es-es locale!","timestamp":"2021-02-16T06:46:44.672Z"}
+{"level":"info","message":"Entries created successfully in 'es-es' language","timestamp":"2021-02-16T06:46:44.673Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-16T06:46:44.673Z"}
+{"level":"info","message":"Imported entries in 'es-es' language successfully!","timestamp":"2021-02-16T06:46:44.674Z"}
+{"level":"info","message":"Successfully imported 'es-es' entries!","timestamp":"2021-02-16T06:46:44.674Z"}
+{"level":"info","message":"Re-modified content type schemas to their original form!","timestamp":"2021-02-16T06:46:44.675Z"}
+{"level":"info","message":"The stack has been eradicated from bugged entries!","timestamp":"2021-02-16T06:46:44.677Z"}
+{"level":"info","message":"Entries have been imported successfully!","timestamp":"2021-02-16T06:46:44.677Z"}
+{"level":"info","message":"Migrating labels","timestamp":"2021-02-16T06:46:44.681Z"}
+{"level":"info","message":"Labels have been imported successfully!","timestamp":"2021-02-16T06:46:44.687Z"}
+{"level":"info","message":"The log for this is stored atD:\\Automation\\New_CLI\\CS\\contentstack.cli.automation\\Exported_content\\logs\\import","timestamp":"2021-02-16T06:46:44.687Z"}
+{"level":"info","message":"Stack: blt6442b96e46b1a252 has been imported succesfully!","timestamp":"2021-02-16T06:46:44.687Z"}</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>2</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>6</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Feb 16, 2021 12:14:33 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Feb 16, 2021 12:16:45 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 2m 11s+692ms</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 2,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 0,
+				
+				passChild: 6,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 0,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>

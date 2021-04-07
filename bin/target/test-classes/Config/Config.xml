@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+	<Environment_Details>
+		<AppUrl>https://codesandbox.io</AppUrl>
+	</Environment_Details>
+	
+	<timeout>10</timeout>
+	
+	<Execution_Details>
+		<Execution_Type>Single</Execution_Type><!-- Single/Multiple/Hybrid-XX -->	
+		<Regression_Suite_Name>Sample app</Regression_Suite_Name>
+	</Execution_Details>
+	
+</Root>

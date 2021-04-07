@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-12-10T14:13:05Z" name="Regression Test Suite" finished-at="2020-12-10T14:16:25Z" duration-ms="199876">
+    <groups>
+    </groups>
+    <test started-at="2020-12-10T14:13:05Z" name="Backend Staging Testing" finished-at="2020-12-10T14:16:25Z" duration-ms="199876">
+      <class name="com.Utilities.Create_TestNGXML">
+        <test-method signature="createXMLfile()[pri:0, instance:com.Utilities.Create_TestNGXML@14a2f921]" started-at="2020-12-10T19:43:05Z" name="createXMLfile" finished-at="2020-12-10T19:46:25Z" duration-ms="199811" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createXMLfile -->
+      </class> <!-- com.Utilities.Create_TestNGXML -->
+    </test> <!-- Backend Staging Testing -->
+  </suite> <!-- Regression Test Suite -->
+</testng-results>

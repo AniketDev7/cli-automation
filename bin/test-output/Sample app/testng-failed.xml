@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Sample app]" guice-stage="DEVELOPMENT">
+  <test name="Marketting app setup(failed)">
+    <parameter name="appURL" value="https://codesandbox.io/"/>
+    <parameter name="tcID" value="Marketting app setup"/>
+    <parameter name="browserType" value="CHROME"/>
+    <classes>
+      <class name="com.Tests.Marketing_app">
+        <methods>
+          <include name="TC_001"/>
+          <include name="initializeTestBaseSetup"/>
+        </methods>
+      </class> <!-- com.Tests.Marketing_app -->
+    </classes>
+  </test> <!-- Marketting app setup(failed) -->
+</suite> <!-- Failed suite [Sample app] -->

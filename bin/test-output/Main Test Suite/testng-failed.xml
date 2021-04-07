@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Main Test Suite]" guice-stage="DEVELOPMENT" verbose="2">
+  <test name="TestNG Test(failed)">
+    <classes>
+      <class name="com.ipa.Utilities.Create_TestNGXML">
+        <methods>
+          <include name="createXMLfile"/>
+        </methods>
+      </class> <!-- com.ipa.Utilities.Create_TestNGXML -->
+    </classes>
+  </test> <!-- TestNG Test(failed) -->
+</suite> <!-- Failed suite [Main Test Suite] -->

@@ -1,0 +1,45 @@
+Currently using NA region
+info: Starting assets export
+info: Skipping download of { title: 10.png, uid: blt39bc216ce901b2a6 }, as they already exist
+info: Skipping download of { title: 7.png, uid: blt73a176869b77c052 }, as they already exist
+info: Skipping download of { title: 9.png, uid: bltf34f0daf71a261d8 }, as they already exist
+info: Skipping download of { title: 6.png, uid: blte892bf2e62b20b9b }, as they already exist
+info: Skipping download of { title: 8.png, uid: blt031d9c5f16467cda }, as they already exist
+info: Skipping download of { title: 0TNLNPP1Vkc.jpg, uid: bltcaefd93cbe5c1c52 }, as they already exist
+info: Skipping download of { title: 2.png, uid: blt4fd9720223612f36 }, as they already exist
+info: Skipping download of { title: 1.png, uid: blte84dd0745e25a4ec }, as they already exist
+info: Skipping download of { title: 4.png, uid: blta4f8585758a5aec4 }, as they already exist
+info: Skipping download of { title: 3.png, uid: bltedad352bbd54fb8d }, as they already exist
+info: Skipping download of { title: 5.png, uid: bltb2622d3ef4add04f }, as they already exist
+info: Batch no 1 of assets is complete
+info: No folders were found in the stack!
+info: Asset export completed successfully
+info: Starting locale export
+info: locale was exported successfully
+info: locale was exported successfully
+info: locale was exported successfully
+info: All the locales have been exported successfully
+info: Starting environment export
+info: All the environments have been exported successfully
+info: Starting extension export
+info: No extensions were found in the Stack
+info: Starting webhooks export
+info: No webhooks were found in the Stack
+info: Starting Global Fields export
+info: Global Fields export completed successfully
+info: Starting content type export
+info: Content type export completed successfully
+info: Starting entry migration
+info: Completed exporting news content type's entries in fr-fr locale
+info: Completed exporting games content type's entries in en-us locale
+info: Completed exporting games content type's entries in es-es locale
+info: Completed exporting games content type's entries in de-de locale
+info: Completed exporting games content type's entries in fr-fr locale
+info: Completed exporting news content type's entries in en-us locale
+info: Completed exporting news content type's entries in es-es locale
+info: Completed exporting news content type's entries in de-de locale
+info: Entry migration completed successfully
+info: Starting labels export
+info: No labels, other than master-labels were found in the Stack
+info: Stack: blt0cae992a583bbc0e has been exported succesfully!
+info: The log for this is stored at D:\CLI-export\Auto_3\logs\export

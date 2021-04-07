@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Test]">
+  <test name="005(failed)">
+    <parameter name="appURL" value="http://203.77.177.245/BSLI/apps/services/www/eapp/desktopbrowser/default/index.html"/>
+    <parameter name="tcID" value="005"/>
+    <parameter name="browserType" value="IE"/>
+    <classes>
+      <class name="com.ibm.ipa.Tests.TC001_H7_LI_Proposer_Same">
+        <methods>
+          <include name="initializeTestBaseSetup"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="TC_001"/>
+        </methods>
+      </class> <!-- com.ibm.ipa.Tests.TC001_H7_LI_Proposer_Same -->
+    </classes>
+  </test> <!-- 005(failed) -->
+</suite> <!-- Failed suite [Test] -->

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Regression Test Suite]" guice-stage="DEVELOPMENT" verbose="2">
+  <test name="Backend Staging Testing(failed)">
+    <classes>
+      <class name="com.Utilities.Create_TestNGXML">
+        <methods>
+          <include name="createXMLfile"/>
+        </methods>
+      </class> <!-- com.Utilities.Create_TestNGXML -->
+    </classes>
+  </test> <!-- Backend Staging Testing(failed) -->
+</suite> <!-- Failed suite [Regression Test Suite] -->

@@ -1,0 +1,3 @@
+Currently using NA region
+CDA HOST: https://cdn.contentstack.io
+CMA HOST: https://api.contentstack.io

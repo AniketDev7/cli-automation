@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [BSC Backend OLD Status URL Check Suite]" guice-stage="DEVELOPMENT">
+  <test name="PROD_COD Pending Reports(failed)">
+    <parameter name="appURL" value="http://bombayshirts-stage.herokuapp.com/overseers/dashboard"/>
+    <parameter name="tcID" value="PROD_COD Pending Reports"/>
+    <parameter name="browserType" value="CHROME"/>
+    <classes>
+      <class name="com.Tests.URL_Check">
+        <methods>
+          <include name="setUp"/>
+          <include name="TC_001"/>
+          <include name="tearDown"/>
+          <include name="initializeTestBaseSetup"/>
+        </methods>
+      </class> <!-- com.Tests.URL_Check -->
+    </classes>
+  </test> <!-- PROD_COD Pending Reports(failed) -->
+</suite> <!-- Failed suite [BSC Backend OLD Status URL Check Suite] -->

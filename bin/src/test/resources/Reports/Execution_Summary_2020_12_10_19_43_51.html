@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent dark default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Dec 10, 2020 07:43:51 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>4</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>CLI-Export</span>
+						<span class='test-time'>Dec 10, 2020 07:43:51 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 10, 2020 07:43:51 PM</span>
+	<span class='label end-time'>Dec 10, 2020 07:44:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 56s+994ms</span>
+</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='2'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Export by Auth token 1</h5>
+						<span class="node-time label grey lighten-1 white-text">Dec 10, 2020 07:44:48 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 56s+950ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:44:16 PM</td>
+													<td class='step-details'><<-- Headless Chrome browser launched -->></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:44:48 PM</td>
+													<td class='step-details'>Test case is passed & the Exported data is >> {"level":"info","message":"Starting assets export","timestamp":"2020-12-10T14:14:22.567Z"}
+{"level":"info","message":"There were no assets to be download","timestamp":"2020-12-10T14:14:24.145Z"}
+{"level":"info","message":"Starting locale export","timestamp":"2020-12-10T14:14:24.201Z"}
+{"level":"info","message":"locale was exported successfully","timestamp":"2020-12-10T14:14:25.763Z"}
+{"level":"info","message":"locale was exported successfully","timestamp":"2020-12-10T14:14:25.764Z"}
+{"level":"info","message":"locale was exported successfully","timestamp":"2020-12-10T14:14:25.765Z"}
+{"level":"info","message":"locale was exported successfully","timestamp":"2020-12-10T14:14:25.766Z"}
+{"level":"info","message":"All the locales have been exported successfully","timestamp":"2020-12-10T14:14:25.766Z"}
+{"level":"info","message":"Starting environment export","timestamp":"2020-12-10T14:14:25.826Z"}
+{"level":"info","message":"All the environments have been exported successfully","timestamp":"2020-12-10T14:14:27.308Z"}
+{"level":"info","message":"Starting extension export","timestamp":"2020-12-10T14:14:27.365Z"}
+{"level":"info","message":"No extensions were found in the Stack","timestamp":"2020-12-10T14:14:28.740Z"}
+{"level":"info","message":"Starting webhooks export","timestamp":"2020-12-10T14:14:28.797Z"}
+{"level":"info","message":"All the webhooks have been exported successfully","timestamp":"2020-12-10T14:14:30.529Z"}
+{"level":"info","message":"Starting Global Fields export","timestamp":"2020-12-10T14:14:30.705Z"}
+{"level":"info","message":"No Global Fields were found in the Stack","timestamp":"2020-12-10T14:14:32.002Z"}
+{"level":"info","message":"Starting content type export","timestamp":"2020-12-10T14:14:32.079Z"}
+{"level":"info","message":"Content type export completed successfully","timestamp":"2020-12-10T14:14:33.329Z"}
+{"level":"info","message":"Starting entry migration","timestamp":"2020-12-10T14:14:33.389Z"}
+{"level":"info","message":"Completed exporting smartling content type's entries in fr-fr locale","timestamp":"2020-12-10T14:14:36.073Z"}
+{"level":"info","message":"Completed exporting smartling content type's entries in en-us locale","timestamp":"2020-12-10T14:14:39.282Z"}
+{"level":"info","message":"Completed exporting smartling content type's entries in es-es locale","timestamp":"2020-12-10T14:14:41.827Z"}
+{"level":"info","message":"Completed exporting smartling content type's entries in es locale","timestamp":"2020-12-10T14:14:44.804Z"}
+{"level":"info","message":"Completed exporting smartling content type's entries in fr locale","timestamp":"2020-12-10T14:14:47.384Z"}
+{"level":"info","message":"Entry migration completed successfully","timestamp":"2020-12-10T14:14:47.386Z"}
+{"level":"info","message":"Starting labels export","timestamp":"2020-12-10T14:14:47.441Z"}
+{"level":"info","message":"No labels, other than master-labels were found in the Stack","timestamp":"2020-12-10T14:14:48.809Z"}
+{"level":"info","message":"Stack: blt697efe95acac6bda has been exported succesfully!","timestamp":"2020-12-10T14:14:48.811Z"}
+{"level":"info","message":"The log for this is stored at D:\\CLI-export\\Auto_2\\logs\\export","timestamp":"2020-12-10T14:14:48.812Z"}</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>CLI-Import</span>
+						<span class='test-time'>Dec 10, 2020 07:44:50 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Dec 10, 2020 07:44:50 PM</span>
+	<span class='label end-time'>Dec 10, 2020 07:46:24 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 33s+904ms</span>
+</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='4'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Import by Auth token 1</h5>
+						<span class="node-time label grey lighten-1 white-text">Dec 10, 2020 07:46:24 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 1m 33s+896ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:45:02 PM</td>
+													<td class='step-details'><<-- Headless Chrome browser launched -->></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:46:24 PM</td>
+													<td class='step-details'>Test case is passed & the Exported data is >> {"level":"info","message":"Migrating languages","timestamp":"2020-12-10T14:15:08.683Z"}
+{"level":"info","message":"Languages have been imported successfully!","timestamp":"2020-12-10T14:15:14.023Z"}
+{"level":"info","message":"Migrating environment","timestamp":"2020-12-10T14:15:14.032Z"}
+{"level":"info","message":"Environments have been imported successfully!","timestamp":"2020-12-10T14:15:15.415Z"}
+{"level":"info","message":"Migrating extensions","timestamp":"2020-12-10T14:15:15.420Z"}
+{"level":"info","message":"No Extensions Found","timestamp":"2020-12-10T14:15:15.518Z"}
+{"level":"info","message":"Migrating webhooks","timestamp":"2020-12-10T14:15:15.536Z"}
+{"level":"info","message":"Webhooks have been imported successfully!","timestamp":"2020-12-10T14:15:16.830Z"}
+{"level":"info","message":"Migrating global-fields","timestamp":"2020-12-10T14:15:16.841Z"}
+{"level":"info","message":"Migrating assets","timestamp":"2020-12-10T14:15:17.005Z"}
+{"level":"info","message":"No globalfields Found","timestamp":"2020-12-10T14:15:16.942Z"}
+{"level":"info","message":"No Assets Found","timestamp":"2020-12-10T14:15:17.021Z"}
+{"level":"info","message":"Migrating contenttypes","timestamp":"2020-12-10T14:15:17.031Z"}
+{"level":"info","message":"smartling was updated successfully!","timestamp":"2020-12-10T14:15:19.520Z"}
+{"level":"info","message":"Content types have been imported successfully!","timestamp":"2020-12-10T14:15:19.521Z"}
+{"level":"info","message":"Migrating entry","timestamp":"2020-12-10T14:15:19.663Z"}
+{"level":"info","message":"Entry blteefef721e2db50d6 published successfully in smartling content type","timestamp":"2020-12-10T14:15:24.967Z"}
+{"level":"info","message":"Entry bltb6437107848e5a5d published successfully in smartling content type","timestamp":"2020-12-10T14:15:28.237Z"}
+{"level":"info","message":"Entry blt86f088a9e1a1f95a published successfully in smartling content type","timestamp":"2020-12-10T14:15:31.362Z"}
+{"level":"info","message":"Entry blt125170245aec4047 published successfully in smartling content type","timestamp":"2020-12-10T14:15:34.942Z"}
+{"level":"info","message":"Entries created successfully in smartling content type in en-us locale!","timestamp":"2020-12-10T14:15:51.839Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2020-12-10T14:15:51.841Z"}
+{"level":"info","message":"Entries created successfully in 'en-us' language","timestamp":"2020-12-10T14:15:51.840Z"}
+{"level":"info","message":"Imported entries in 'en-us' language successfully!","timestamp":"2020-12-10T14:15:51.844Z"}
+{"level":"info","message":"Successfully imported 'en-us' entries!","timestamp":"2020-12-10T14:15:51.845Z"}
+{"level":"info","message":"Entry blteefef721e2db50d6 published successfully in smartling content type","timestamp":"2020-12-10T14:15:55.763Z"}
+{"level":"info","message":"Entries created successfully in smartling content type in fr-fr locale!","timestamp":"2020-12-10T14:15:55.767Z"}
+{"level":"info","message":"Entries created successfully in 'fr-fr' language","timestamp":"2020-12-10T14:15:55.768Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2020-12-10T14:15:55.769Z"}
+{"level":"info","message":"Imported entries in 'fr-fr' language successfully!","timestamp":"2020-12-10T14:15:55.771Z"}
+{"level":"info","message":"Successfully imported 'fr-fr' entries!","timestamp":"2020-12-10T14:15:55.771Z"}
+{"level":"info","message":"Entries created successfully in smartling content type in fr locale!","timestamp":"2020-12-10T14:15:55.897Z"}
+{"level":"info","message":"Entries created successfully in 'fr' language","timestamp":"2020-12-10T14:15:55.899Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2020-12-10T14:15:55.902Z"}
+{"level":"info","message":"Imported entries in 'fr' language successfully!","timestamp":"2020-12-10T14:15:55.905Z"}
+{"level":"info","message":"Successfully imported 'fr' entries!","timestamp":"2020-12-10T14:15:55.905Z"}
+{"level":"info","message":"Entry blt125170245aec4047 published successfully in smartling content type","timestamp":"2020-12-10T14:16:10.441Z"}
+{"level":"info","message":"Entries created successfully in smartling content type in es locale!","timestamp":"2020-12-10T14:16:15.812Z"}
+{"level":"info","message":"Entries created successfully in 'es' language","timestamp":"2020-12-10T14:16:15.813Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2020-12-10T14:16:15.813Z"}
+{"level":"info","message":"Imported entries in 'es' language successfully!","timestamp":"2020-12-10T14:16:15.815Z"}
+{"level":"info","message":"Successfully imported 'es' entries!","timestamp":"2020-12-10T14:16:15.818Z"}
+{"level":"info","message":"Entries created successfully in smartling content type in es-es locale!","timestamp":"2020-12-10T14:16:24.504Z"}
+{"level":"info","message":"Entries created successfully in 'es-es' language","timestamp":"2020-12-10T14:16:24.504Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2020-12-10T14:16:24.505Z"}
+{"level":"info","message":"Imported entries in 'es-es' language successfully!","timestamp":"2020-12-10T14:16:24.508Z"}
+{"level":"info","message":"Successfully imported 'es-es' entries!","timestamp":"2020-12-10T14:16:24.509Z"}
+{"level":"info","message":"Re-modified content type schemas to their original form!","timestamp":"2020-12-10T14:16:24.512Z"}
+{"level":"info","message":"The stack has been eradicated from bugged entries!","timestamp":"2020-12-10T14:16:24.516Z"}
+{"level":"info","message":"Entries have been imported successfully!","timestamp":"2020-12-10T14:16:24.517Z"}
+{"level":"info","message":"Migrating labels","timestamp":"2020-12-10T14:16:24.578Z"}
+{"level":"info","message":"Stack: blt5efd25f68e83d3c3 has been imported succesfully!","timestamp":"2020-12-10T14:16:24.612Z"}
+{"level":"info","message":"Labels have been imported successfully!","timestamp":"2020-12-10T14:16:24.610Z"}
+{"level":"info","message":"The log for this is stored atD:\\CLI-export\\Auto_2\\logs\\import","timestamp":"2020-12-10T14:16:24.614Z"}</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>2</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>4</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Dec 10, 2020 07:43:51 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Dec 10, 2020 07:46:25 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 2m 33s+915ms</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 2,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 0,
+				
+				passChild: 4,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 0,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>

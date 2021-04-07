@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>ExtentReports</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent dark default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>ExtentReports</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Feb 14, 2021 01:35:23 AM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>3</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>CLI-Import</span>
+						<span class='test-time'>Feb 14, 2021 01:35:23 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 14, 2021 01:35:23 AM</span>
+	<span class='label end-time'>Feb 14, 2021 01:36:12 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 49s+110ms</span>
+</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='2'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Importing stack by MG 1</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 14, 2021 01:36:12 AM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 49s+81ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>1:35:27 AM</td>
+													<td class='step-details'>Headless browser instance is launched</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>1:35:35 AM</td>
+													<td class='step-details'>Management token added successfully >></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>1:36:12 AM</td>
+													<td class='step-details'>Test case is passed & the Exported data is >> {"level":"info","message":"Migrating languages","timestamp":"2021-02-13T19:47:39.623Z"}
+{"level":"info","message":"Languages have been imported successfully!","timestamp":"2021-02-13T19:47:42.839Z"}
+{"level":"info","message":"Migrating environment","timestamp":"2021-02-13T19:47:42.842Z"}
+{"level":"info","message":"Environments have been imported successfully!","timestamp":"2021-02-13T19:47:46.055Z"}
+{"level":"info","message":"Migrating extensions","timestamp":"2021-02-13T19:47:46.058Z"}
+{"level":"info","message":"No Extensions Found","timestamp":"2021-02-13T19:47:46.221Z"}
+{"level":"info","message":"Migrating webhooks","timestamp":"2021-02-13T19:47:46.223Z"}
+{"level":"info","message":"No Webhooks Found","timestamp":"2021-02-13T19:47:46.344Z"}
+{"level":"info","message":"Migrating global-fields","timestamp":"2021-02-13T19:47:46.348Z"}
+{"level":"info","message":"Global field profile created successfully","timestamp":"2021-02-13T19:47:47.463Z"}
+{"level":"info","message":"Migrating assets","timestamp":"2021-02-13T19:47:47.468Z"}
+{"level":"info","message":"globalfields have been imported successfully!","timestamp":"2021-02-13T19:47:47.464Z"}
+{"level":"info","message":"No folders were found at: D:\\Automation\\New_CLI\\CS\\contentstack.cli.automation\\_backup_527\\assets\\folders.json","timestamp":"2021-02-13T19:47:47.497Z"}
+{"level":"info","message":"Asset blt12eb7eb90e551570 published successfully","timestamp":"2021-02-13T19:47:49.973Z"}
+{"level":"info","message":"Asset blt320ffe75e9caeb34 published successfully","timestamp":"2021-02-13T19:47:51.718Z"}
+{"level":"info","message":"Completed asset import of batch no: 1","timestamp":"2021-02-13T19:47:51.720Z"}
+{"level":"info","message":"Asset blt45d3bc4e11716046 published successfully","timestamp":"2021-02-13T19:47:54.160Z"}
+{"level":"info","message":"Completed asset import of batch no: 6","timestamp":"2021-02-13T19:47:54.161Z"}
+{"level":"info","message":"Asset blta66749b6b0889abd published successfully","timestamp":"2021-02-13T19:47:56.537Z"}
+{"level":"info","message":"Completed asset import of batch no: 5","timestamp":"2021-02-13T19:47:56.660Z"}
+{"level":"info","message":"Asset blt65462dfdbea5f011 published successfully","timestamp":"2021-02-13T19:47:59.028Z"}
+{"level":"info","message":"Asset blt2c268eeee8836d63 published successfully","timestamp":"2021-02-13T19:47:59.082Z"}
+{"level":"info","message":"Completed asset import of batch no: 4","timestamp":"2021-02-13T19:47:59.083Z"}
+{"level":"info","message":"Asset blte9d075603bd70c25 published successfully","timestamp":"2021-02-13T19:48:01.491Z"}
+{"level":"info","message":"Asset bltdab89e33b15bca96 published successfully","timestamp":"2021-02-13T19:48:01.497Z"}
+{"level":"info","message":"Completed asset import of batch no: 3","timestamp":"2021-02-13T19:48:01.498Z"}
+{"level":"info","message":"Asset bltbc34f61a817780f9 published successfully","timestamp":"2021-02-13T19:48:03.709Z"}
+{"level":"info","message":"Asset bltc09f9c2b7343d5e4 published successfully","timestamp":"2021-02-13T19:48:03.871Z"}
+{"level":"info","message":"Completed asset import of batch no: 2","timestamp":"2021-02-13T19:48:03.872Z"}
+{"level":"info","message":"Asset import completed successfully!","timestamp":"2021-02-13T19:48:03.873Z"}
+{"level":"info","message":"Migrating contenttypes","timestamp":"2021-02-13T19:48:03.876Z"}
+{"level":"info","message":"games was updated successfully!","timestamp":"2021-02-13T19:48:07.834Z"}
+{"level":"info","message":"news was updated successfully!","timestamp":"2021-02-13T19:48:07.838Z"}
+{"level":"info","message":"Content types have been imported successfully!","timestamp":"2021-02-13T19:48:07.839Z"}
+{"level":"info","message":"Migrating entry","timestamp":"2021-02-13T19:48:08.020Z"}
+{"level":"info","message":"Entry bltd200e4b70da14832 published successfully in news content type","timestamp":"2021-02-13T19:48:10.244Z"}
+{"level":"info","message":"Entries created successfully in news content type in en-us locale!","timestamp":"2021-02-13T19:48:11.288Z"}
+{"level":"info","message":"Entry bltd17b0802e395684f published successfully in games content type","timestamp":"2021-02-13T19:48:14.629Z"}
+{"level":"info","message":"Entry bltcb7fe68b9b74822f published successfully in games content type","timestamp":"2021-02-13T19:48:16.684Z"}
+{"level":"info","message":"Entries created successfully in games content type in en-us locale!","timestamp":"2021-02-13T19:48:16.687Z"}
+{"level":"info","message":"Entries created successfully in 'en-us' language","timestamp":"2021-02-13T19:48:16.688Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-13T19:48:16.689Z"}
+{"level":"info","message":"Imported entries in 'en-us' language successfully!","timestamp":"2021-02-13T19:48:16.690Z"}
+{"level":"info","message":"Successfully imported 'en-us' entries!","timestamp":"2021-02-13T19:48:16.690Z"}
+{"level":"info","message":"Entries created successfully in news content type in fr-fr locale!","timestamp":"2021-02-13T19:48:16.886Z"}
+{"level":"info","message":"Entries created successfully in games content type in fr-fr locale!","timestamp":"2021-02-13T19:48:17.151Z"}
+{"level":"info","message":"Entries created successfully in 'fr-fr' language","timestamp":"2021-02-13T19:48:17.151Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-13T19:48:17.152Z"}
+{"level":"info","message":"Imported entries in 'fr-fr' language successfully!","timestamp":"2021-02-13T19:48:17.153Z"}
+{"level":"info","message":"Successfully imported 'fr-fr' entries!","timestamp":"2021-02-13T19:48:17.154Z"}
+{"level":"info","message":"Entries created successfully in news content type in de-de locale!","timestamp":"2021-02-13T19:48:17.550Z"}
+{"level":"info","message":"Entries created successfully in games content type in de-de locale!","timestamp":"2021-02-13T19:48:18.038Z"}
+{"level":"info","message":"Entries created successfully in 'de-de' language","timestamp":"2021-02-13T19:48:18.038Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-13T19:48:18.039Z"}
+{"level":"info","message":"Imported entries in 'de-de' language successfully!","timestamp":"2021-02-13T19:48:18.041Z"}
+{"level":"info","message":"Successfully imported 'de-de' entries!","timestamp":"2021-02-13T19:48:18.041Z"}
+{"level":"info","message":"Entries created successfully in news content type in es-es locale!","timestamp":"2021-02-13T19:48:18.498Z"}
+{"level":"info","message":"Entries created successfully in games content type in es-es locale!","timestamp":"2021-02-13T19:48:18.509Z"}
+{"level":"info","message":"Entries created successfully in 'es-es' language","timestamp":"2021-02-13T19:48:18.510Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-13T19:48:18.513Z"}
+{"level":"info","message":"Imported entries in 'es-es' language successfully!","timestamp":"2021-02-13T19:48:18.515Z"}
+{"level":"info","message":"Successfully imported 'es-es' entries!","timestamp":"2021-02-13T19:48:18.515Z"}
+{"level":"info","message":"Re-modified content type schemas to their original form!","timestamp":"2021-02-13T19:48:18.517Z"}
+{"level":"info","message":"The stack has been eradicated from bugged entries!","timestamp":"2021-02-13T19:48:18.518Z"}
+{"level":"info","message":"Entries have been imported successfully!","timestamp":"2021-02-13T19:48:18.519Z"}
+{"level":"info","message":"Migrating labels","timestamp":"2021-02-13T19:48:18.522Z"}
+{"level":"info","message":"Labels have been imported successfully!","timestamp":"2021-02-13T19:48:18.615Z"}
+{"level":"info","message":"Stack: blt1476c90f22099447 has been imported succesfully!","timestamp":"2021-02-13T19:48:18.615Z"}
+{"level":"info","message":"The log for this is stored atD:\\Automation\\New_CLI\\CS\\contentstack.cli.automation\\Exported_content\\logs\\import","timestamp":"2021-02-13T19:48:18.616Z"}
+{"level":"info","message":"Migrating languages","timestamp":"2021-02-13T20:02:23.364Z"}
+{"level":"info","message":"Languages have been imported successfully!","timestamp":"2021-02-13T20:02:26.512Z"}
+{"level":"info","message":"Migrating environment","timestamp":"2021-02-13T20:02:26.515Z"}
+{"level":"info","message":"Environments have been imported successfully!","timestamp":"2021-02-13T20:02:29.682Z"}
+{"level":"info","message":"Migrating extensions","timestamp":"2021-02-13T20:02:29.684Z"}
+{"level":"info","message":"No Extensions Found","timestamp":"2021-02-13T20:02:29.763Z"}
+{"level":"info","message":"Migrating webhooks","timestamp":"2021-02-13T20:02:29.765Z"}
+{"level":"info","message":"No Webhooks Found","timestamp":"2021-02-13T20:02:29.833Z"}
+{"level":"info","message":"Migrating global-fields","timestamp":"2021-02-13T20:02:29.836Z"}
+{"level":"info","message":"globalfields have been imported successfully!","timestamp":"2021-02-13T20:02:31.007Z"}
+{"level":"info","message":"No folders were found at: D:\\Automation\\New_CLI\\CS\\contentstack.cli.automation\\_backup_884\\assets\\folders.json","timestamp":"2021-02-13T20:02:31.089Z"}
+{"level":"info","message":"Migrating assets","timestamp":"2021-02-13T20:02:31.011Z"}
+{"level":"info","message":"Completed asset import of batch no: 1","timestamp":"2021-02-13T20:02:32.412Z"}
+{"level":"info","message":"Completed asset import of batch no: 6","timestamp":"2021-02-13T20:02:33.718Z"}
+{"level":"info","message":"Completed asset import of batch no: 5","timestamp":"2021-02-13T20:02:35.994Z"}
+{"level":"info","message":"Completed asset import of batch no: 4","timestamp":"2021-02-13T20:02:37.304Z"}
+{"level":"info","message":"Completed asset import of batch no: 3","timestamp":"2021-02-13T20:02:38.587Z"}
+{"level":"info","message":"Completed asset import of batch no: 2","timestamp":"2021-02-13T20:02:39.894Z"}
+{"level":"info","message":"Migrating contenttypes","timestamp":"2021-02-13T20:02:39.899Z"}
+{"level":"info","message":"Asset import completed successfully!","timestamp":"2021-02-13T20:02:39.895Z"}
+{"level":"info","message":"games was updated successfully!","timestamp":"2021-02-13T20:02:43.182Z"}
+{"level":"info","message":"news was updated successfully!","timestamp":"2021-02-13T20:02:43.192Z"}
+{"level":"info","message":"Migrating entry","timestamp":"2021-02-13T20:02:43.303Z"}
+{"level":"info","message":"Content types have been imported successfully!","timestamp":"2021-02-13T20:02:43.192Z"}
+{"level":"info","message":"Entries created successfully in news content type in en-us locale!","timestamp":"2021-02-13T20:02:45.523Z"}
+{"level":"info","message":"Entries created successfully in games content type in en-us locale!","timestamp":"2021-02-13T20:02:48.710Z"}
+{"level":"info","message":"Entries created successfully in 'en-us' language","timestamp":"2021-02-13T20:02:48.711Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-13T20:02:48.712Z"}
+{"level":"info","message":"Imported entries in 'en-us' language successfully!","timestamp":"2021-02-13T20:02:48.715Z"}
+{"level":"info","message":"Successfully imported 'en-us' entries!","timestamp":"2021-02-13T20:02:48.715Z"}
+{"level":"info","message":"Entries created successfully in news content type in fr-fr locale!","timestamp":"2021-02-13T20:02:48.997Z"}
+{"level":"info","message":"Entries created successfully in games content type in fr-fr locale!","timestamp":"2021-02-13T20:02:49.099Z"}
+{"level":"info","message":"Entries created successfully in 'fr-fr' language","timestamp":"2021-02-13T20:02:49.099Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-13T20:02:49.100Z"}
+{"level":"info","message":"Imported entries in 'fr-fr' language successfully!","timestamp":"2021-02-13T20:02:49.101Z"}
+{"level":"info","message":"Successfully imported 'fr-fr' entries!","timestamp":"2021-02-13T20:02:49.102Z"}
+{"level":"info","message":"Entries created successfully in news content type in de-de locale!","timestamp":"2021-02-13T20:02:49.358Z"}
+{"level":"info","message":"Entries created successfully in games content type in de-de locale!","timestamp":"2021-02-13T20:02:49.460Z"}
+{"level":"info","message":"Entries created successfully in 'de-de' language","timestamp":"2021-02-13T20:02:49.460Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-13T20:02:49.461Z"}
+{"level":"info","message":"Imported entries in 'de-de' language successfully!","timestamp":"2021-02-13T20:02:49.462Z"}
+{"level":"info","message":"Successfully imported 'de-de' entries!","timestamp":"2021-02-13T20:02:49.462Z"}
+{"level":"info","message":"Entries created successfully in news content type in es-es locale!","timestamp":"2021-02-13T20:02:49.665Z"}
+{"level":"info","message":"Entries created successfully in games content type in es-es locale!","timestamp":"2021-02-13T20:02:49.777Z"}
+{"level":"info","message":"Entries created successfully in 'es-es' language","timestamp":"2021-02-13T20:02:49.777Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-13T20:02:49.778Z"}
+{"level":"info","message":"Imported entries in 'es-es' language successfully!","timestamp":"2021-02-13T20:02:49.779Z"}
+{"level":"info","message":"Successfully imported 'es-es' entries!","timestamp":"2021-02-13T20:02:49.780Z"}
+{"level":"info","message":"Re-modified content type schemas to their original form!","timestamp":"2021-02-13T20:02:49.781Z"}
+{"level":"info","message":"The stack has been eradicated from bugged entries!","timestamp":"2021-02-13T20:02:49.784Z"}
+{"level":"info","message":"Entries have been imported successfully!","timestamp":"2021-02-13T20:02:49.784Z"}
+{"level":"info","message":"Migrating labels","timestamp":"2021-02-13T20:02:49.792Z"}
+{"level":"info","message":"Labels have been imported successfully!","timestamp":"2021-02-13T20:02:49.896Z"}
+{"level":"info","message":"Stack: blteb5899dc535df85d has been imported succesfully!","timestamp":"2021-02-13T20:02:49.896Z"}
+{"level":"info","message":"The log for this is stored atD:\\Automation\\New_CLI\\CS\\contentstack.cli.automation\\Exported_content\\logs\\import","timestamp":"2021-02-13T20:02:49.897Z"}
+{"level":"info","message":"Migrating languages","timestamp":"2021-02-13T20:05:38.282Z"}
+{"level":"info","message":"Languages have been imported successfully!","timestamp":"2021-02-13T20:05:41.461Z"}
+{"level":"info","message":"Migrating environment","timestamp":"2021-02-13T20:05:41.464Z"}
+{"level":"info","message":"Environments have been imported successfully!","timestamp":"2021-02-13T20:05:44.470Z"}
+{"level":"info","message":"Migrating extensions","timestamp":"2021-02-13T20:05:44.472Z"}
+{"level":"info","message":"No Extensions Found","timestamp":"2021-02-13T20:05:44.480Z"}
+{"level":"info","message":"Migrating webhooks","timestamp":"2021-02-13T20:05:44.482Z"}
+{"level":"info","message":"No Webhooks Found","timestamp":"2021-02-13T20:05:44.489Z"}
+{"level":"info","message":"Migrating global-fields","timestamp":"2021-02-13T20:05:44.492Z"}
+{"level":"info","message":"Global field profile created successfully","timestamp":"2021-02-13T20:05:45.541Z"}
+{"level":"info","message":"globalfields have been imported successfully!","timestamp":"2021-02-13T20:05:45.542Z"}
+{"level":"info","message":"Migrating assets","timestamp":"2021-02-13T20:05:45.547Z"}
+{"level":"info","message":"No folders were found at: D:\\Automation\\New_CLI\\CS\\contentstack.cli.automation\\_backup_424\\assets\\folders.json","timestamp":"2021-02-13T20:05:45.681Z"}
+{"level":"info","message":"Asset bltaff997453b5ddcc1 published successfully","timestamp":"2021-02-13T20:05:48.068Z"}
+{"level":"info","message":"Asset blt3ac66fbdb50b2032 published successfully","timestamp":"2021-02-13T20:05:48.089Z"}
+{"level":"info","message":"Completed asset import of batch no: 1","timestamp":"2021-02-13T20:05:48.090Z"}
+{"level":"info","message":"Asset blt9d8bc91117feab39 published successfully","timestamp":"2021-02-13T20:05:50.454Z"}
+{"level":"info","message":"Completed asset import of batch no: 6","timestamp":"2021-02-13T20:05:50.456Z"}
+{"level":"info","message":"Completed asset import of batch no: 5","timestamp":"2021-02-13T20:05:52.883Z"}
+{"level":"info","message":"Asset bltb5d7c354c3e57212 published successfully","timestamp":"2021-02-13T20:05:52.881Z"}
+{"level":"info","message":"Asset blt6bfced2620f11ca0 published successfully","timestamp":"2021-02-13T20:05:55.252Z"}
+{"level":"info","message":"Asset bltb0ca64374c6d86fd published successfully","timestamp":"2021-02-13T20:05:55.320Z"}
+{"level":"info","message":"Completed asset import of batch no: 4","timestamp":"2021-02-13T20:05:55.322Z"}
+{"level":"info","message":"Asset blt288b1a74bedcadad published successfully","timestamp":"2021-02-13T20:05:57.730Z"}
+{"level":"info","message":"Asset blt403d8176323b8917 published successfully","timestamp":"2021-02-13T20:05:57.732Z"}
+{"level":"info","message":"Completed asset import of batch no: 3","timestamp":"2021-02-13T20:05:57.734Z"}
+{"level":"info","message":"Asset bltb90b1a1efb972fe8 published successfully","timestamp":"2021-02-13T20:05:59.882Z"}
+{"level":"info","message":"Asset blt97bc5bfe8bd0c203 published successfully","timestamp":"2021-02-13T20:06:00.159Z"}
+{"level":"info","message":"Completed asset import of batch no: 2","timestamp":"2021-02-13T20:06:00.161Z"}
+{"level":"info","message":"Asset import completed successfully!","timestamp":"2021-02-13T20:06:00.162Z"}
+{"level":"info","message":"Migrating contenttypes","timestamp":"2021-02-13T20:06:00.166Z"}
+{"level":"info","message":"games was updated successfully!","timestamp":"2021-02-13T20:06:03.611Z"}
+{"level":"info","message":"news was updated successfully!","timestamp":"2021-02-13T20:06:03.664Z"}
+{"level":"info","message":"Content types have been imported successfully!","timestamp":"2021-02-13T20:06:03.666Z"}
+{"level":"info","message":"Migrating entry","timestamp":"2021-02-13T20:06:03.701Z"}
+{"level":"info","message":"Entry blt74f7f7e8807a6967 published successfully in news content type","timestamp":"2021-02-13T20:06:05.774Z"}
+{"level":"info","message":"Entries created successfully in news content type in en-us locale!","timestamp":"2021-02-13T20:06:06.863Z"}
+{"level":"info","message":"Entry blt34b241b87002b711 published successfully in games content type","timestamp":"2021-02-13T20:06:10.110Z"}
+{"level":"info","message":"Entry blt5a5b0abc351e0912 published successfully in games content type","timestamp":"2021-02-13T20:06:12.170Z"}
+{"level":"info","message":"Entries created successfully in games content type in en-us locale!","timestamp":"2021-02-13T20:06:12.174Z"}
+{"level":"info","message":"Entries created successfully in 'en-us' language","timestamp":"2021-02-13T20:06:12.175Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-13T20:06:12.176Z"}
+{"level":"info","message":"Imported entries in 'en-us' language successfully!","timestamp":"2021-02-13T20:06:12.178Z"}
+{"level":"info","message":"Successfully imported 'en-us' entries!","timestamp":"2021-02-13T20:06:12.179Z"}
+{"level":"info","message":"Entries created successfully in news content type in fr-fr locale!","timestamp":"2021-02-13T20:06:12.291Z"}
+{"level":"info","message":"Entries created successfully in games content type in fr-fr locale!","timestamp":"2021-02-13T20:06:12.303Z"}
+{"level":"info","message":"Entries created successfully in 'fr-fr' language","timestamp":"2021-02-13T20:06:12.303Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-13T20:06:12.305Z"}
+{"level":"info","message":"Imported entries in 'fr-fr' language successfully!","timestamp":"2021-02-13T20:06:12.306Z"}
+{"level":"info","message":"Successfully imported 'fr-fr' entries!","timestamp":"2021-02-13T20:06:12.306Z"}
+{"level":"info","message":"Entries created successfully in news content type in de-de locale!","timestamp":"2021-02-13T20:06:12.329Z"}
+{"level":"info","message":"Entries created successfully in games content type in de-de locale!","timestamp":"2021-02-13T20:06:12.335Z"}
+{"level":"info","message":"Entries created successfully in 'de-de' language","timestamp":"2021-02-13T20:06:12.335Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-13T20:06:12.336Z"}
+{"level":"info","message":"Imported entries in 'de-de' language successfully!","timestamp":"2021-02-13T20:06:12.338Z"}
+{"level":"info","message":"Successfully imported 'de-de' entries!","timestamp":"2021-02-13T20:06:12.338Z"}
+{"level":"info","message":"Entries created successfully in news content type in es-es locale!","timestamp":"2021-02-13T20:06:12.352Z"}
+{"level":"info","message":"Entries created successfully in games content type in es-es locale!","timestamp":"2021-02-13T20:06:12.358Z"}
+{"level":"info","message":"Entries created successfully in 'es-es' language","timestamp":"2021-02-13T20:06:12.358Z"}
+{"level":"info","message":"No entries without mapped uid found!","timestamp":"2021-02-13T20:06:12.359Z"}
+{"level":"info","message":"Successfully imported 'es-es' entries!","timestamp":"2021-02-13T20:06:12.365Z"}
+{"level":"info","message":"Imported entries in 'es-es' language successfully!","timestamp":"2021-02-13T20:06:12.364Z"}
+{"level":"info","message":"Re-modified content type schemas to their original form!","timestamp":"2021-02-13T20:06:12.367Z"}
+{"level":"info","message":"The stack has been eradicated from bugged entries!","timestamp":"2021-02-13T20:06:12.369Z"}
+{"level":"info","message":"Entries have been imported successfully!","timestamp":"2021-02-13T20:06:12.370Z"}
+{"level":"info","message":"Migrating labels","timestamp":"2021-02-13T20:06:12.375Z"}
+{"level":"info","message":"Labels have been imported successfully!","timestamp":"2021-02-13T20:06:12.396Z"}
+{"level":"info","message":"Stack: bltfffc4ddb3dcb4387 has been imported succesfully!","timestamp":"2021-02-13T20:06:12.397Z"}
+{"level":"info","message":"The log for this is stored atD:\\Automation\\New_CLI\\CS\\contentstack.cli.automation\\Exported_content\\logs\\import","timestamp":"2021-02-13T20:06:12.398Z"}</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>3</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Feb 14, 2021 01:35:23 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Feb 14, 2021 01:36:13 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 0m 50s+552ms</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 1,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 0,
+				
+				passChild: 3,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 0,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>
