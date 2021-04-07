@@ -47,11 +47,6 @@ mvn test
 ```
 
 
-License
-----
-
-MIT
-
 
 
 
